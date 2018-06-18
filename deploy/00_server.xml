@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 服务TestFilter监听 -->
+<server class="org.jpos.q2.iso.QServer" logger="Q2" name="module">
+<attr name="port" type="java.lang.Integer">9033</attr>
+
+        <!-- 入口通道 -->
+<channel class="org.jpos.iso.channel.XMLChannel" logger="Q2"
+        packager="org.jpos.iso.packager.XMLPackager">
+        <!-- 入口通道内的处理器，如果不需要要也可以不配置 -->
+        <!-- 方向incoming:匹配消息进入，outgoing:匹配消息返回-->
+<!--<filter class="com.example.jpos.client.TestFilter" direction="incoming">
+<property name="fields" value="0 2 3"/>
+</filter>-->
+        </channel>
+
+        <!-- 路由器 -->
+        <!-- 这里是根据32域匹配出口通道 -->
+<!--<request-listener class="org.jpos.apps.qsp.Q2Router" logger="Q2">
+<router switch="${32}==01" type="mux"  bounce="true" destination="out1" timeout="30000"/>
+<router switch="${32}==02" type="mux" bounce="true" destination="out2"  timeout="30000"/>
+        </request-listener>-->
+        </server>
+
